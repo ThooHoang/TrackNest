@@ -32,6 +32,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  /* border: 1px solid red; */
 }
 
 html {
@@ -45,15 +46,19 @@ body {
   font-size: var(--font-p);
   font-weight: var(--fw-regular);
   color: var(--color-dark);
-  background-color: var(--color-light);
+  background-color: #FFFFFF;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
 }
 
+.nav-container {
+  margin: 0 auto;
+  padding: 0px 80px;
+}
 
 .container {
   margin: 0 auto;
-  padding: 0 80px;
+  padding: 40px 80px;
 }
 
 h1, h2, h3 {
@@ -344,3 +349,59 @@ button {
 }
 
 
+/* How Section */
+
+.how {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 80px;
+  background-color: #F9FAFB;
+}
+
+.how-text {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 2rem;
+
+}
+
+.how-step:nth-child(odd) {
+  flex-direction: row-reverse;
+}
+
+.how-step {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  padding-block:4rem ;
+}
+
+.how-step__text {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.step-number {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.step-number-circle {
+  height: 48px;
+  width: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #9BDE4C;
+  color: var(--color-light);
+  border-radius: 50%;
+}
