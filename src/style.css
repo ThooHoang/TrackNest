@@ -220,7 +220,7 @@ button {
   gap: 1rem;
 }
 
-.hero-content__rating .fa-solid {
+.stars .fa-solid {
   color: #FACC15 ;
 }
 
@@ -404,4 +404,52 @@ button {
   background: #9BDE4C;
   color: var(--color-light);
   border-radius: 50%;
+}
+
+/* Testimonials */
+
+.testimonials {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-block: 4rem;
+  gap: 6rem;
+}
+
+.testimonials-text{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  gap: 1rem;
+
+}
+
+.testimonials-cards {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.testimonial-card {
+  padding: 2rem;
+  box-shadow: var(--shadow-custom);
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: flex-start;
+  max-width: 370px;
+}
+
+.testimonial-user {
+  display: flex;
+  gap: 1rem;
+}
+
+.testimonial-user__credits{
+  display: flex;
+  flex-direction: column;
 }
