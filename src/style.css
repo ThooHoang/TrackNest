@@ -77,10 +77,13 @@ h3 {
 p {
   font-size: var(--font-p);
   font-weight: var(--fw-regular);
+  color: #4B5563;
 }
 
 p.large {
   font-size: var(--font-p-lg);
+  color: #4B5563;
+  font-weight: var(--fw-regular);
   
 }
 
@@ -268,5 +271,76 @@ button {
 }
 
 /* Hero Ends */
+
+/* Features Section */
+
+.features {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 6rem;
+  padding-block: 70px ;
+}
+
+.features-text {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;  
+}
+
+.features-cards {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 4rem;
+  flex-wrap: wrap;
+}
+
+.card {
+  padding: 2rem;
+  box-shadow: var(--shadow-custom);
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: flex-start;
+  max-width: 380px;
+  min-height: 300px;
+  transition: .3s ease;
+
+}
+
+.card:hover {
+  transform: translateY(-10px);
+}
+
+.card-icon {
+  background-color: var(--color-green);
+  padding: 1rem;
+  border-radius: 16px ;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-icon-ai {
+  background-color: #3B82F6;
+  padding: 1rem;
+  border-radius: 16px ;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-icon-track {
+  background-color: #A855F7;
+  padding: 1rem;
+  border-radius: 16px ;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 
