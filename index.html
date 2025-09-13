@@ -15,25 +15,37 @@
         <a href="index.html">
           <img src="./src/assets/logo.svg" alt="tracknest logo">
         </a>
+        <button class="hamburger" id="hamburger" aria-label="Open Menu">
+          <i class="fa-solid fa-bars fa-2xl	"></i>
+        </button>
+        
         <ul class="navbar-links">
           <a href="#features" class="navbar-link">
-            <li>
-              Features
-            </li>
+            <li>Features</li>
           </a>
           <a href="#howItWorks" class="navbar-link">
-            <li>
-              How It Works
-            </li>
+            <li>How It Works</li>
           </a>
           <a href="#reviews" class="navbar-link">
-            <li>
-              Reviews
-            </li>
+            <li>Reviews</li>
           </a>
         </ul>
       </div>
     </nav>
+
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay">
+      <button class="close-menu" id="closeMenu" aria-label="Close menu">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div class="mobile-menu-content">
+        <ul class="mobile-menu-links">
+          <li><a href="#features" class="mobile-menu-link">Features</a></li>
+          <li><a href="#howItWorks" class="mobile-menu-link">How It Works</a></li>
+          <li><a href="#reviews" class="mobile-menu-link">Reviews</a></li>
+        </ul>
+      </div>
+    </div>
+
     <section class="hero container">
       <div class="hero-content">
         <div class="hero-content__text">
@@ -355,6 +367,7 @@
     </div>
     <p class="credit">© 2025 TrackNest - Quang Tho Hoang. All rights reserved.</p>
   </footer>
+  <script src="src/main.js"></script>
   
 </body>
 </html>

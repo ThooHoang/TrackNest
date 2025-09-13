@@ -1,24 +1,41 @@
-import './style.css'
-import javascriptLogo from './javascript.svg'
-import viteLogo from '/vite.svg'
-import { setupCounter } from './counter.js'
+const hamburger = document.getElementById('hamburger');
+const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+const closeMenu = document.getElementById('closeMenu');
+const mobileMenuLinks = document.querySelectorAll('.mobile-menu-link');
+const body = document.body;
 
-document.querySelector('#app').innerHTML = `
-  <div>
-    <a href="https://vite.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
-      <img src="${javascriptLogo}" class="logo vanilla" alt="JavaScript logo" />
-    </a>
-    <h1>Hello Vite!</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite logo to learn more
-    </p>
-  </div>
-`
+// Open mobile menu
+hamburger.addEventListener('click', () => {
+  hamburger.classList.add('active');
+  mobileMenuOverlay.classList.add('active');
+  body.classList.add('menu-open');
+});
 
-setupCounter(document.querySelector('#counter'))
+// Close mobile menu
+closeMenu.addEventListener('click', closeMobileMenu);
+
+// Close menu when clicking on a link
+mobileMenuLinks.forEach(link => {
+  link.addEventListener('click', closeMobileMenu);
+});
+
+// Close menu when clicking outside content
+mobileMenuOverlay.addEventListener('click', (e) => {
+  if (e.target === mobileMenuOverlay) {
+    closeMobileMenu();
+  }
+});
+
+// Close menu function
+function closeMobileMenu() {
+  hamburger.classList.remove('active');
+  mobileMenuOverlay.classList.remove('active');
+  body.classList.remove('menu-open');
+}
+
+// Close menu with escape key
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && mobileMenuOverlay.classList.contains('active')) {
+    closeMobileMenu();
+  }
+});
