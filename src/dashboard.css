@@ -1,0 +1,555 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+:root {
+  --font-h1: 3.75rem;   /* 60px */
+  --font-h2: 2.125rem;  /* 34px */
+  --font-h3: 1.375rem;  /* 22px */
+  --font-p-lg: 1.25rem; /* 20px */
+  --font-p: 1rem;       /* 16px */
+  --font-sm: 0.875rem;  /* 14px */
+
+  --fw-regular: 400;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+
+  --color-green: #9BDE4C;
+  --color-dark: #25262C;
+  --color-light: #E5E7EB;
+  --color-white: #FFFFFF;
+  --color-gray: #6B7280;
+  --color-gray-light: #F9FAFB;
+
+  --gradient-green: linear-gradient(180deg, #9BDE4C 0%, #547829 100%);
+  --shadow-custom: 
+    0 9.55px 14.33px rgba(0, 0, 0, 0.1),
+    0 3.82px 5.73px rgba(0, 0, 0, 0.1);
+}
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  font-size: var(--font-p);
+  font-weight: var(--fw-regular);
+  color: var(--color-dark);
+  background-color: var(--color-gray-light);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Dashboard Navbar */
+.dashboard-navbar {
+  background-color: var(--color-white);
+  box-shadow: var(--shadow-custom);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+}
+
+.navbar-container {
+  margin: 0 auto;
+  padding: 0px 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Right side container */
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+/* Stat boxes */
+.navbar-stat {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  padding: 0.75rem 1.25rem;
+  background-color: var(--color-gray-light);
+  border-radius: 12px;
+  border: 1px solid #E5E7EB;
+  margin-block: 1rem;
+  gap: 1rem;
+}
+
+.stat-label {
+  font-size: var(--font-sm);
+  color: var(--color-gray);
+  font-weight: var(--fw-regular);
+  margin-bottom: 0.25rem;
+}
+
+.stat-amount {
+  font-size: var(--font-p-lg);
+  color: var(--color-dark);
+  font-weight: var(--fw-bold);
+}
+
+/* Profile image */
+.navbar-profile {
+  margin-left: 0.5rem;
+}
+
+.profile-image {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.profile-image:hover {
+  transform: scale(1.05);
+}
+
+/* Dashboard main content */
+.dashboard-main {
+  margin: 0 auto;
+  padding: 40px 80px;
+  min-height: calc(100vh - 80px);
+}
+
+/* Dashboard Header Section */
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #E5E7EB;
+}
+
+.welcome-content h1 {
+  font-size: var(--font-h2);
+  color: var(--color-dark);
+  font-weight: var(--fw-bold);
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
+}
+
+.welcome-subtext {
+  font-size: var(--font-p-lg);
+  color: var(--color-gray);
+  font-weight: var(--fw-regular);
+}
+
+/* Quick Action Button */
+.btn-quick-action {
+  font-family: 'Inter', sans-serif;
+  font-size: var(--font-p);
+  font-weight: var(--fw-semibold);
+  padding: 20px 32px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.3s ease, transform 0.2s ease;
+  background-color: var(--color-dark);
+  color: var(--color-light);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.btn-quick-action:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
+
+.btn-quick-action:active {
+  transform: translateY(0);
+}
+
+.btn-quick-action i {
+  font-size: 1.1rem;
+}
+
+/* Budget Cards */
+.budget-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.budget-card {
+  background-color: var(--color-white);
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: var(--shadow-custom);
+  cursor: pointer;
+}
+
+
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.card-info {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.card-icon {
+  width: 40px;
+  height: 40px;
+  background-color: #3B82F6;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.1rem;
+}
+
+.card-icon.food {
+  background-color: #F59E0B;
+}
+
+.card-icon.transport {
+  background-color: #8B5CF6;
+}
+
+.card-icon.entertainment {
+  background-color: #EF4444;
+}
+
+.card-icon.savings {
+  background-color: #10B981;
+}
+
+.card-info h3 {
+  font-size: var(--font-h3);
+  color: var(--color-dark);
+  font-weight: var(--fw-semibold);
+}
+
+.card-percentage {
+  font-size: var(--font-p-lg);
+  color: var(--color-gray);
+  font-weight: var(--fw-semibold);
+}
+
+.card-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.stat-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.stat-row span:first-child {
+  color: var(--color-gray);
+  font-size: var(--font-p);
+}
+
+.stat-row span:last-child {
+  color: var(--color-dark);
+  font-weight: var(--fw-semibold);
+  font-size: var(--font-p);
+}
+
+.stat-row .spent {
+  color: #EF4444;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  background-color: #E5E7EB;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background-color: #3B82F6;
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+/* Farebné ikony */
+.card-icon.food {
+  background-color: #F59E0B;
+}
+
+.card-icon.transport {
+  background-color: #8B5CF6;
+}
+
+.card-icon.entertainment {
+  background-color: #EF4444;
+}
+
+.card-icon.savings {
+  background-color: #10B981;
+}
+
+/* Progress bary s rovnakými farbami */
+.budget-card:nth-child(1) .progress-fill {
+  background-color: #3B82F6; /* Living Costs - modrá */
+}
+
+.budget-card:nth-child(2) .progress-fill {
+  background-color: #F59E0B; /* Food - oranžová */
+}
+
+.budget-card:nth-child(3) .progress-fill {
+  background-color: #8B5CF6; /* Transport - fialová */
+}
+
+.budget-card:nth-child(4) .progress-fill {
+  background-color: #EF4444; /* Entertainment - červená */
+}
+
+.budget-card:nth-child(5) .progress-fill {
+  background-color: #10B981; /* Savings - zelená */
+}
+
+/* Dashboard Grid Layout */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+/* Recent Transactions */
+.recent-transactions {
+  background-color: var(--color-white);
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: var(--shadow-custom);
+}
+
+.view-all-link {
+  font-size: var(--font-sm);
+  color: var(--color-gray);
+  text-decoration: none;
+  font-weight: var(--fw-regular);
+}
+
+.view-all-link:hover {
+  color: var(--color-dark);
+}
+
+.transactions-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.transaction-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border-radius: 12px;
+  transition: all 0.2s ease;
+}
+
+.transaction-content {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.transaction-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1rem;
+}
+
+.transaction-icon.restaurant {
+  background-color: #FEE2E2;
+  color: #EF4444;
+}
+
+.transaction-icon.gas {
+  background-color: #DBEAFE;
+  color: #3B82F6;
+}
+
+.transaction-icon.salary {
+  background-color: #D1FAE5;
+  color: #10B981;
+}
+
+.transaction-icon.shopping {
+  background-color: #F3E8FF;
+  color: #8B5CF6;
+}
+
+.transaction-details h4 {
+  font-size: var(--font-p);
+  color: var(--color-dark);
+  font-weight: var(--fw-semibold);
+  margin-bottom: 0.25rem;
+}
+
+.transaction-details p {
+  font-size: var(--font-sm);
+  color: var(--color-gray);
+}
+
+.transaction-amount {
+  font-size: var(--font-p);
+  font-weight: var(--fw-bold);
+}
+
+.transaction-amount.expense {
+  color: #EF4444;
+}
+
+.transaction-amount.income {
+  color: #10B981;
+}
+
+/* Fixed Expenses - lepší dizajn */
+.fixed-expenses {
+  background-color: var(--color-white);
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: var(--shadow-custom);
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.section-header h2 {
+  font-size: var(--font-h3);
+  color: var(--color-dark);
+  font-weight: var(--fw-bold);
+}
+
+.expenses-counter {
+  font-size: var(--font-sm);
+  color: var(--color-gray);
+  font-weight: var(--fw-regular);
+}
+
+.expenses-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.expense-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border-radius: 12px;
+  background-color: var(--color-white);
+  border: 1px solid #E5E7EB;
+  transition: all 0.2s ease;
+}
+
+.expense-item.paid {
+  background-color: #F0FDF4;
+  border-color: #10B981;
+}
+
+.expense-content {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.expense-checkbox {
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+  border: 2px solid #D1D5DB;
+  cursor: pointer;
+  accent-color: #10B981;
+}
+
+.expense-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 0.9rem;
+}
+
+.expense-icon.house {
+  background-color: #3B82F6;
+}
+
+.expense-icon.entertainment {
+  background-color: #EF4444;
+}
+
+.expense-icon.phone {
+  background-color: #8B5CF6;
+}
+
+.expense-icon.utility {
+  background-color: #F59E0B;
+}
+
+.expense-icon.wifi {
+  background-color: #8B5CF6;
+}
+
+.expense-details h4 {
+  font-size: var(--font-p);
+  color: var(--color-dark);
+  font-weight: var(--fw-semibold);
+  margin-bottom: 0.25rem;
+}
+
+.expense-details p {
+  font-size: var(--font-sm);
+  color: var(--color-gray);
+  font-weight: var(--fw-regular);
+}
+
+.expense-amount {
+  font-size: var(--font-p);
+  color: var(--color-dark);
+  font-weight: var(--fw-bold);
+}
+
+/* Hover efekty */
+.expense-item:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
