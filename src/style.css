@@ -413,7 +413,7 @@ button {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  padding-block: 4rem;
+  padding-block: 6rem;
   gap: 6rem;
 }
 
@@ -453,3 +453,26 @@ button {
   display: flex;
   flex-direction: column;
 }
+
+/* Trial Section */
+
+.trial {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 2rem;
+  background: var(--gradient-green);
+  padding: 80px;
+}
+
+.trial h2 {
+  font-size: 3rem;
+  color: var(--color-light);
+}
+
+.trial p {
+  color: var(--color-light);
+}
+
+
