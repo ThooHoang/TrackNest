@@ -177,6 +177,36 @@ body {
   font-size: 1.1rem;
 }
 
+/* Add Expense Button */
+.btn-add-expense {
+  font-family: 'Inter', sans-serif;
+  font-size: var(--font-sm);
+  font-weight: var(--fw-semibold);
+  padding: 8px 16px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.3s ease, transform 0.2s ease;
+  background-color: var(--color-dark);
+  color: var(--color-white);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.btn-add-expense:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.btn-add-expense:active {
+  transform: translateY(0);
+}
+
+.btn-add-expense i {
+  font-size: 0.9rem;
+}
+
 /* Budget Cards */
 .budget-cards {
   display: grid;
@@ -460,6 +490,10 @@ body {
   font-weight: var(--fw-regular);
 }
 
+.expenses-counter-wrapper {
+  margin-bottom: 1rem;
+}
+
 .expenses-list {
   display: flex;
   flex-direction: column;
@@ -551,5 +585,204 @@ body {
 .expense-item:hover {
   transform: translateY(-1px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* ===== MODAL STYLES ===== */
+
+/* Modal Overlay - pozadie */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+/* Modal je viditeľný */
+.modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Modal Container - hlavný box */
+.modal-container {
+  background: var(--color-white);
+  border-radius: 16px;
+  width: 100%;
+  max-width: 500px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: var(--shadow-custom);
+  transform: scale(0.9);
+  transition: transform 0.3s ease;
+}
+
+.modal-overlay.active .modal-container {
+  transform: scale(1);
+}
+
+/* Modal Header */
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 24px 0 24px;
+  border-bottom: 1px solid var(--color-light);
+  margin-bottom: 24px;
+}
+
+.modal-header h2 {
+  font-size: var(--font-h3);
+  font-weight: var(--fw-semibold);
+  color: var(--color-dark);
+}
+
+.modal-close {
+  background: none;
+  border: none;
+  font-size: 20px;
+  color: var(--color-gray);
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.modal-close:hover {
+  background-color: var(--color-light);
+  color: var(--color-dark);
+}
+
+/* Modal Form */
+.modal-form {
+  padding: 0 24px 24px 24px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: var(--fw-semibold);
+  color: var(--color-dark);
+  margin-bottom: 8px;
+  font-size: var(--font-sm);
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid var(--color-light);
+  border-radius: 8px;
+  font-size: var(--font-p);
+  transition: border-color 0.2s ease;
+  background-color: var(--color-white);
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: var(--color-green);
+}
+
+.form-group input::placeholder {
+  color: var(--color-gray);
+}
+
+/* Modal Actions */
+.modal-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+  margin-top: 32px;
+}
+
+.btn-cancel,
+.btn-save {
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: var(--font-sm);
+  font-weight: var(--fw-semibold);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+}
+
+.btn-cancel {
+  background-color: var(--color-light);
+  color: var(--color-gray);
+}
+
+.btn-cancel:hover {
+  background-color: #D1D5DB;
+}
+
+.btn-save {
+  background: var(--color-dark);
+  color: var(--color-white);
+}
+
+.btn-save:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(155, 222, 76, 0.3);
+}
+
+/* ===== DELETE BUTTON STYLES ===== */
+
+/* Expense Actions - kontajner pre amount a delete */
+.expense-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Delete Button */
+.btn-delete {
+  background: none;
+  border: none;
+  color: var(--color-gray);
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: all 0.2s ease;
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* Ukáž delete tlačidlo pri hover na expense */
+.expense-item:hover .btn-delete {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Delete tlačidlo hover efekt */
+.btn-delete:hover {
+  background-color: #FEE2E2;
+  color: #DC2626;
+  transform: scale(1.1);
+}
+
+/* Delete tlačidlo active efekt */
+.btn-delete:active {
+  transform: scale(0.95);
+}
+
+/* Responsive - na mobile vždy zobraz delete */
+@media (max-width: 768px) {
+  .btn-delete {
+    opacity: 1;
+    visibility: visible;
+  }
 }
 

@@ -271,6 +271,12 @@
       <section class="fixed-expenses">
         <div class="section-header">
           <h2>Fixed Expenses</h2>
+          <button class="btn-add-expense " id="addExpenseBtn">
+            <i class="fa-solid fa-plus"></i>
+            Add
+          </button>
+        </div>
+        <div class="expenses-counter-wrapper">
           <span class="expenses-counter">3 of 5 paid</span>
         </div>
         
@@ -286,7 +292,12 @@
                 <p>Due: 1st of month</p>
               </div>
             </div>
-            <div class="expense-amount">€650</div>
+            <div class="expense-actions">
+              <div class="expense-amount">€650</div>
+              <button class="btn-delete" title="Delete expense">
+                <i class="fa-solid fa-trash"></i>
+              </button>
+            </div>
           </div>
 
           <div class="expense-item paid">
@@ -300,7 +311,12 @@
                 <p>Due: 15th of month</p>
               </div>
             </div>
-            <div class="expense-amount">€12.99</div>
+            <div class="expense-actions">
+              <div class="expense-amount">€12.99</div>
+              <button class="btn-delete" title="Delete expense">
+                <i class="fa-solid fa-trash"></i>
+              </button>
+            </div>
           </div>
 
           <div class="expense-item paid">
@@ -314,7 +330,12 @@
                 <p>Due: 10th of month</p>
               </div>
             </div>
-            <div class="expense-amount">€25</div>
+            <div class="expense-actions">
+              <div class="expense-amount">€25</div>
+              <button class="btn-delete" title="Delete expense">
+                <i class="fa-solid fa-trash"></i>
+              </button>
+            </div>
           </div>
 
           <div class="expense-item">
@@ -328,7 +349,12 @@
                 <p>Due: 20th of month</p>
               </div>
             </div>
-            <div class="expense-amount">€85</div>
+            <div class="expense-actions">
+              <div class="expense-amount">€85</div>
+              <button class="btn-delete" title="Delete expense">
+                <i class="fa-solid fa-trash"></i>
+              </button>
+            </div>
           </div>
 
           <div class="expense-item">
@@ -342,12 +368,66 @@
                 <p>Due: 25th of month</p>
               </div>
             </div>
-            <div class="expense-amount">€35</div>
+            <div class="expense-actions">
+              <div class="expense-amount">€35</div>
+              <button class="btn-delete" title="Delete expense">
+                <i class="fa-solid fa-trash"></i>
+              </button>
+            </div>
           </div>
         </div>
       </section>
     </div>
   </main>
+
+  <!-- Add Expense Modal -->
+<div class="modal-overlay" id="addExpenseModal">
+  <div class="modal-container">
+    <div class="modal-header">
+      <h2>Add New Expense</h2>
+      <button class="modal-close" id="closeModal">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+    
+    <form class="modal-form" id="expenseForm">
+      <div class="form-group">
+        <label for="expenseNameInput">Expense Name</label>
+        <input type="text" id="expenseNameInput" placeholder="e.g., Internet, Insurance" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="expenseAmountInput">Amount (€)</label>
+        <input type="number" id="expenseAmountInput" placeholder="e.g., 45" min="0" step="0.01" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="expenseDueDateInput">Due Date</label>
+        <input type="text" id="expenseDueDateInput" placeholder="e.g., 15th of month" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="expenseIconSelect">Icon</label>
+        <select id="expenseIconSelect">
+          <option value="house">🏠 House/Rent</option>
+          <option value="wifi">📶 Internet/WiFi</option>
+          <option value="mobile-screen">📱 Phone</option>
+          <option value="bolt">⚡ Electricity</option>
+          <option value="play">▶️ Streaming</option>
+          <option value="car">🚗 Car/Transport</option>
+          <option value="shield">🛡️ Insurance</option>
+          <option value="utensils">🍽️ Food</option>
+        </select>
+      </div>
+      
+      <div class="modal-actions">
+        <button type="button" class="btn-cancel" id="cancelModal">Cancel</button>
+        <button type="submit" class="btn-save">Add Expense</button>
+      </div>
+    </form>
+  </div>
+</div>
+
   <script src="src/dashboard.js"></script>
 </body>
 </html>
