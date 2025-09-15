@@ -428,6 +428,57 @@
   </div>
 </div>
 
+
+<div class="modal-overlay" id="addIncomeExpenseModal">
+  <div class="modal-container">
+    <div class="modal-header">
+      <h2>Add New Income/Expense</h2>
+      <button class="modal-close" id="closeIncomeExpenseModal">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+    
+    <form class="modal-form" id="transactionForm">
+      <div class="form-group">
+        <label for="transactionNameInput">Income/Expense Name</label>
+        <input type="text" id="transactionNameInput" placeholder="e.g., Internet, Insurance" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="transactionAmountInput">Amount (€)</label>
+        <input type="number" id="transactionAmountInput" placeholder="e.g., 45" min="0" step="0.01" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="incomeOrExpense">Income/Expense</label>
+        <select name="incomeOrExpense" id="incomeOrExpense">
+          <option value="income">Income</option>
+          <option value="expense">Expense</option>
+        </select>
+      </div>
+      
+      <div class="form-group">
+        <label for="transactionIconSelect">Icon</label>
+        <select id="transactionIconSelect">
+          <option value="house">🏠 House/Rent</option>
+          <option value="wifi">📶 Internet/WiFi</option>
+          <option value="mobile-screen">📱 Phone</option>
+          <option value="bolt">⚡ Electricity</option>
+          <option value="play">▶️ Streaming</option>
+          <option value="car">🚗 Car/Transport</option>
+          <option value="shield">🛡️ Insurance</option>
+          <option value="utensils">🍽️ Food</option>
+        </select>
+      </div>
+      
+      <div class="modal-actions">
+        <button type="button" class="btn-cancel" id="cancelIncomeExpenseModal">Cancel</button>
+        <button type="submit" class="btn-save">Add Expense</button>
+      </div>
+    </form>
+  </div>
+</div>
+
   <script src="src/dashboard.js"></script>
 </body>
 </html>

@@ -179,3 +179,73 @@ deleteButtons.forEach(function(button) {
 });
 
 
+// Income / Expense for recent transaction
+
+const addTransactionBtn = document.getElementById('addTransactionBtn');
+const addTransactionModal = document.getElementById('addIncomeExpenseModal');
+const closeIncomeExpenseBtn = document.getElementById('closeIncomeExpenseModal');
+const cancelIncomeExpenseBtn = document.getElementById('cancelIncomeExpenseModal');
+const transactionForm = document.getElementById('transactionForm');
+
+
+
+transactionForm.addEventListener('submit', function(event) {
+    event.preventDefault();
+    
+    const transactionNameInput = document.getElementById('transactionNameInput').value;
+    const transactionAmountInput = document.getElementById('transactionAmountInput').value;
+    const transactionIncomeExpenseOption = document.getElementById('incomeOrExpense').value;
+    const transactionIconSelect = document.getElementById('transactionIconSelect').value;
+
+    console.log(transactionIncomeExpenseOption);
+
+    const newTransactionHTML = `
+        <div class="transaction-item ${transactionIncomeExpenseOption}">
+            <div class="transaction-content">
+                <div class="transaction-icon ${transactionIconSelect}">
+                    <i class="fa-solid ${transactionIconSelect}"></i>
+                </div>
+                <div class="transaction-details">
+                    <h4>${transactionNameInput}</h4>
+                </div>
+            </div>
+            <div class="transaction-amount ${transactionIncomeExpenseOption}">${transactionIncomeExpenseOption === 'income' ? '+' : '-'}${transactionAmountInput}</div>
+        </div>
+
+    `
+    const transactionList = document.querySelector('.transactions-list');
+    transactionList.insertAdjacentHTML('afterbegin', newTransactionHTML);
+
+    addTransactionModal.classList.remove('active');
+    transactionForm.reset()
+
+})
+
+
+
+
+
+addTransactionBtn.addEventListener('click', function () {
+    addTransactionModal.classList.add('active');
+
+})
+
+// Zatvoriť modal - krížik
+closeIncomeExpenseBtn.addEventListener('click', function () {
+    addTransactionModal.classList.remove('active');
+});
+
+// Zatvoriť modal - Cancel tlačidlo
+cancelIncomeExpenseBtn.addEventListener('click', function () {
+    addTransactionModal.classList.remove('active');
+});
+
+// Zatvoriť modal - klik mimo modal
+addTransactionModal.addEventListener('click', function (event) {
+    if (event.target === addTransactionModal) {
+        addTransactionModal.classList.remove('active');
+    }
+});
+
+
+
