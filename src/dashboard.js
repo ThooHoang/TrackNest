@@ -197,21 +197,24 @@ transactionForm.addEventListener('submit', function(event) {
     const transactionIncomeExpenseOption = document.getElementById('incomeOrExpense').value;
     const transactionIconSelect = document.getElementById('transactionIconSelect').value;
 
+    console.log(transactionIconSelect);
+
     console.log(transactionIncomeExpenseOption);
 
     const newTransactionHTML = `
         <div class="transaction-item ${transactionIncomeExpenseOption}">
             <div class="transaction-content">
                 <div class="transaction-icon ${transactionIconSelect}">
-                    <i class="fa-solid ${transactionIconSelect}"></i>
+                    <i class="fa-solid fa-${transactionIconSelect}"></i>
                 </div>
                 <div class="transaction-details">
                     <h4>${transactionNameInput}</h4>
                 </div>
             </div>
-            <div class="transaction-amount ${transactionIncomeExpenseOption}">${transactionIncomeExpenseOption === 'income' ? '+' : '-'}${transactionAmountInput}</div>
+            <div class="transaction-amount ${transactionIncomeExpenseOption}">
+                ${transactionIncomeExpenseOption === 'income' ? '+' : '-'}€${transactionAmountInput}
+            </div>
         </div>
-
     `
     const transactionList = document.querySelector('.transactions-list');
     transactionList.insertAdjacentHTML('afterbegin', newTransactionHTML);
