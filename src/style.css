@@ -113,6 +113,11 @@ button {
   color: var(--color-light);
 }
 
+.button-primary a {
+  color: var(--color-light);
+  text-decoration: none;
+}
+
 .button-primary:hover {
   opacity: 0.9;
   transform: translateY(-2px);

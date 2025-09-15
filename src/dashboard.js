@@ -20,6 +20,9 @@ checkboxes.forEach( function (checkbox) {
     })
 })
 
+
+
+
 const addExpenseBtn = document.getElementById('addExpenseBtn');
 const modal = document.getElementById('addExpenseModal');
 const closeModalBtn = document.getElementById('closeModal');
@@ -116,6 +119,10 @@ expenseForm.addEventListener('submit', function (event) {
 });
 
 
+
+
+
+
 const expensesList = document.querySelector('.expenses-list');
 
 expensesList.addEventListener('click', function(event) {
@@ -150,6 +157,11 @@ expensesList.addEventListener('click', function(event) {
 });
 
 
+
+
+
+
+
 function updateCounter () {
     const counter = document.querySelector('.expenses-counter');
     const howManyCheckboxes = document.querySelectorAll('.expense-checkbox');
@@ -165,3 +177,5 @@ deleteButtons.forEach(function(button) {
         // mazanie...
     });
 });
+
+
