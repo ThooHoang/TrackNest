@@ -313,6 +313,36 @@ function editIncome() {
         saveBudgetData();
         updateAllDisplays();
     }
+
+}
+
+function getCategoryDisplayName(category) {
+    const categoryNames = {
+        housing: 'Housing & Utilities',
+        food: 'Food & Dining',
+        transport: 'Transportation',
+        healthcare: 'Healthcare',
+        entertainment: 'Entertainment & Subscriptions',
+        personal: 'Personal & Shopping',
+        savings: 'Savings & Investing'
+    };
+    return categoryNames[category] || category;
+}
+
+function editCategoryPercentage(category) {
+    const categoryData = budgetData.categories[category];
+    const categoryName = getCategoryDisplayName(category);
+
+    const newPercentage = prompt(
+        `Edit percentage for ${categoryName}:\n\nCurrent: ${categoryData.percentage}%`, categoryData.percentage
+    )
+    if (newPercentage && !isNaN(newPercentage) && newPercentage >= 0 && newPercentage <= 100) {
+    budgetData.categories[category].percentage = parseFloat(newPercentage);
+    saveBudgetData();
+    updateAllDisplays();
+    } else if (newPercentage !== null) {
+        alert('Please enter a valid percentage between 0 and 100');
+    }
 }
 
 
@@ -334,7 +364,19 @@ function updateBudgetCards () {
             card.querySelector('.spent-amount').textContent = `${Math.round(spentAmount).toLocaleString('da-DK')} kr.`;
             card.querySelector('.remaining-amount').textContent = `${Math.round(remainingAmount).toLocaleString('da-DK')} kr.`;
             card.querySelector('.progress-fill').style.width = `${Math.min(progressPercentage, 100)}%`;
+            card.querySelector('.card-percentage').textContent = `${categoryData.percentage}%`;
 
+
+
+            const percentageElement = card.querySelector('.card-percentage');
+            percentageElement.style.cursor = "pointer" ;
+            percentageElement.title = 'Click to edit percentage';
+
+            if (!percentageElement.hasAttribute('data-clickable')) {
+                percentageElement.addEventListener('click', () => editCategoryPercentage(category));
+                percentageElement.setAttribute('data-clickable', 'true');
+            }
+            
             const remainingElement = card.querySelector('.remaining-amount');
             if (remainingAmount < 0) {
                 remainingElement.style.color = '#e74c3c'; // Red
@@ -371,5 +413,4 @@ function updateBalanceLeft () {
         balanceElement.style.color = '#2ecc71'; // Green - healthy balance
     }
 }
-
 

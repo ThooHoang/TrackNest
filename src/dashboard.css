@@ -249,7 +249,6 @@ body {
   border-radius: 16px;
   padding: 1.5rem;
   box-shadow: var(--shadow-custom);
-  cursor: pointer;
 }
 
 .card-header {
