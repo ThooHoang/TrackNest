@@ -85,7 +85,7 @@ expenseForm.addEventListener('submit', function (event) {
                 </div>
             </div>
             <div class="expense-actions">
-                <div class="expense-amount">€${expenseAmount}</div>
+                <div class="expense-amount">${parseFloat(expenseAmount).toLocaleString('da-DK')} kr.</div>
                 <button class="btn-delete" title="Delete expense">
                     <i class="fa-solid fa-trash"></i>
                 </button>
@@ -172,7 +172,8 @@ transactionForm.addEventListener('submit', function(event) {
     const transactionIncomeExpenseOption = document.getElementById('incomeOrExpense').value;
     const transactionIconSelect = document.getElementById('transactionIconSelect').value;
 
-    // Create new transaction
+    // Create new transaction with DKK formatting
+    const formattedAmount = parseFloat(transactionAmountInput).toLocaleString('da-DK');
     const newTransactionHTML = `
         <div class="transaction-item ${transactionIncomeExpenseOption}">
             <div class="transaction-content">
@@ -184,7 +185,7 @@ transactionForm.addEventListener('submit', function(event) {
                 </div>
             </div>
             <div class="transaction-amount ${transactionIncomeExpenseOption}">
-                ${transactionIncomeExpenseOption === 'income' ? '+' : '-'}€${transactionAmountInput}
+                ${transactionIncomeExpenseOption === 'income' ? '+' : '-'}${formattedAmount} kr.
                 <button class="btn-delete" title="Delete transaction">
                     <i class="fa-solid fa-trash"></i>
                 </button>
@@ -216,7 +217,7 @@ transactionList.addEventListener('click', function(event) {
 
 
 
-// Buddget System
+// Budget System
 
 const DEFAULT_BUDGET_TEMPLATE = {
     monthlyIncome: 0,
@@ -256,7 +257,7 @@ function saveBudgetData () {
 }
 
 function promptForInitialIncome () {
-    const income = prompt('Welcome to TrackNest! 🎉\n\nTo get started, please enter your monthly income (€):')
+    const income = prompt('Welcome to TrackNest! 🎉\n\nTo get started, please enter your monthly income (DKK):')
 
     if (income && !isNaN(income) && income >0) {
         budgetData.monthlyIncome = parseFloat(income);
@@ -264,7 +265,7 @@ function promptForInitialIncome () {
         updateAllDisplays();
 
     } else {
-        alert('Please enter valid income amount to use TrackNest');
+        alert('Please enter a valid income amount to use TrackNest');
         promptForInitialIncome()
     }
 }
@@ -307,9 +308,11 @@ function updateIncomeDisplay() {
 
 function editIncome() {
     const newIncome = prompt('Edit your monthly income:', budgetData.monthlyIncome);
-    budgetData.monthlyIncome = parseFloat(newIncome);
-    saveBudgetData();
-    updateAllDisplays();
+    if (newIncome && !isNaN(newIncome) && newIncome > 0) {
+        budgetData.monthlyIncome = parseFloat(newIncome);
+        saveBudgetData();
+        updateAllDisplays();
+    }
 }
 
 
@@ -326,7 +329,7 @@ function updateBudgetCards () {
             const remainingAmount = budgetAmount - spentAmount;
             const progressPercentage = budgetAmount > 0 ? (spentAmount/budgetAmount) * 100 : 0;
 
-            // Changed from € to DKK formatting
+            // DKK formatting for budget cards
             card.querySelector('.budget-amount').textContent = `${Math.round(budgetAmount).toLocaleString('da-DK')} kr.`;
             card.querySelector('.spent-amount').textContent = `${Math.round(spentAmount).toLocaleString('da-DK')} kr.`;
             card.querySelector('.remaining-amount').textContent = `${Math.round(remainingAmount).toLocaleString('da-DK')} kr.`;
