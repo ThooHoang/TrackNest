@@ -23,13 +23,13 @@
               <!-- This Month Income -->
               <div class="navbar-stat">
                 <span class="stat-label">This Month Income</span>
-                <span class="stat-amount">$4,250.00</span>
+                <span class="stat-amount">€4,250.00</span>
               </div>
               
               <!-- Balance Left -->
               <div class="navbar-stat">
                 <span class="stat-label">Balance Left</span>
-                <span class="stat-amount">$1,820.50</span>
+                <span class="stat-amount">€1,820.50</span>
               </div>
               
               <!-- User -->
@@ -41,11 +41,10 @@
         </nav>
     </header>
 
-  <!-- Tu bude zvyšok dashboard obsahu -->
   <main class="dashboard-main">
     <section class="dashboard-header">
       <div class="welcome-content">
-        <h1 class="welcome-heading">Welcome back, Adam! 👋</h1>
+        <h1 class="welcome-heading">Welcome back, Radkaa! 👋</h1>
         <p class="welcome-subtext">Here's your financial overview for September 2025</p>
       </div>
       <div class="quick-actions">
@@ -58,36 +57,38 @@
     
     <!-- Budget Cards Section -->
     <section class="budget-cards">
-      <div class="budget-card">
+      <!-- Housing & Utilities -->
+      <div class="budget-card" data-category="housing">
         <div class="card-header">
           <div class="card-info">
-            <div class="card-icon">
+            <div class="card-icon housing">
               <i class="fa-solid fa-house"></i>
             </div>
-            <h3>Living Costs</h3>
+            <h3>Housing & Utilities</h3>
           </div>
-          <div class="card-percentage">50%</div>
+          <div class="card-percentage">40%</div>
         </div>
         <div class="card-stats">
           <div class="stat-row">
             <span>Budget</span>
-            <span>€750</span>
+            <span class="budget-amount">€1,700</span>
           </div>
           <div class="stat-row">
             <span>Spent</span>
-            <span class="spent">€423</span>
+            <span class="spent-amount">€650</span>
           </div>
           <div class="stat-row">
             <span>Remaining</span>
-            <span>€327</span>
+            <span class="remaining-amount">€1,050</span>
           </div>
         </div>
         <div class="progress-bar">
-          <div class="progress-fill" style="width: 56%"></div>
+          <div class="progress-fill" style="width: 38%"></div>
         </div>
       </div>
 
-      <div class="budget-card">
+      <!-- Food & Dining -->
+      <div class="budget-card" data-category="food">
         <div class="card-header">
           <div class="card-info">
             <div class="card-icon food">
@@ -95,28 +96,29 @@
             </div>
             <h3>Food & Dining</h3>
           </div>
-          <div class="card-percentage">25%</div>
+          <div class="card-percentage">20%</div>
         </div>
         <div class="card-stats">
           <div class="stat-row">
             <span>Budget</span>
-            <span>€400</span>
+            <span class="budget-amount">€850</span>
           </div>
           <div class="stat-row">
             <span>Spent</span>
-            <span class="spent">€289</span>
+            <span class="spent-amount">€0</span>
           </div>
           <div class="stat-row">
             <span>Remaining</span>
-            <span>€111</span>
+            <span class="remaining-amount">€850</span>
           </div>
         </div>
         <div class="progress-bar">
-          <div class="progress-fill" style="width: 72%"></div>
+          <div class="progress-fill" style="width: 0%"></div>
         </div>
       </div>
 
-      <div class="budget-card">
+      <!-- Transportation -->
+      <div class="budget-card" data-category="transport">
         <div class="card-header">
           <div class="card-info">
             <div class="card-icon transport">
@@ -129,77 +131,139 @@
         <div class="card-stats">
           <div class="stat-row">
             <span>Budget</span>
-            <span>€250</span>
+            <span class="budget-amount">€638</span>
           </div>
           <div class="stat-row">
             <span>Spent</span>
-            <span class="spent">€180</span>
+            <span class="spent-amount">€0</span>
           </div>
           <div class="stat-row">
             <span>Remaining</span>
-            <span>€70</span>
+            <span class="remaining-amount">€638</span>
           </div>
         </div>
         <div class="progress-bar">
-          <div class="progress-fill" style="width: 72%"></div>
+          <div class="progress-fill" style="width: 0%"></div>
         </div>
       </div>
 
-      <div class="budget-card">
+      <!-- Healthcare -->
+      <div class="budget-card" data-category="healthcare">
+        <div class="card-header">
+          <div class="card-info">
+            <div class="card-icon healthcare">
+              <i class="fa-solid fa-heart-pulse"></i>
+            </div>
+            <h3>Healthcare</h3>
+          </div>
+          <div class="card-percentage">5%</div>
+        </div>
+        <div class="card-stats">
+          <div class="stat-row">
+            <span>Budget</span>
+            <span class="budget-amount">€213</span>
+          </div>
+          <div class="stat-row">
+            <span>Spent</span>
+            <span class="spent-amount">€0</span>
+          </div>
+          <div class="stat-row">
+            <span>Remaining</span>
+            <span class="remaining-amount">€213</span>
+          </div>
+        </div>
+        <div class="progress-bar">
+          <div class="progress-fill" style="width: 0%"></div>
+        </div>
+      </div>
+
+      <!-- Entertainment & Subscriptions -->
+      <div class="budget-card" data-category="entertainment">
         <div class="card-header">
           <div class="card-info">
             <div class="card-icon entertainment">
               <i class="fa-solid fa-gamepad"></i>
             </div>
-            <h3>Entertainment</h3>
+            <h3>Entertainment & Subscriptions</h3>
           </div>
-          <div class="card-percentage">7%</div>
+          <div class="card-percentage">10%</div>
         </div>
         <div class="card-stats">
           <div class="stat-row">
             <span>Budget</span>
-            <span>€150</span>
+            <span class="budget-amount">€425</span>
           </div>
           <div class="stat-row">
             <span>Spent</span>
-            <span class="spent">€95</span>
+            <span class="spent-amount">€13</span>
           </div>
           <div class="stat-row">
             <span>Remaining</span>
-            <span>€55</span>
+            <span class="remaining-amount">€412</span>
           </div>
         </div>
         <div class="progress-bar">
-          <div class="progress-fill" style="width: 63%"></div>
+          <div class="progress-fill" style="width: 3%"></div>
         </div>
       </div>
 
-      <div class="budget-card">
+      <!-- Personal & Shopping -->
+      <div class="budget-card" data-category="personal">
+        <div class="card-header">
+          <div class="card-info">
+            <div class="card-icon personal">
+              <i class="fa-solid fa-spray-can-sparkles"></i>
+            </div>
+            <h3>Personal & Shopping</h3>
+          </div>
+          <div class="card-percentage">5%</div>
+        </div>
+        <div class="card-stats">
+          <div class="stat-row">
+            <span>Budget</span>
+            <span class="budget-amount">€213</span>
+          </div>
+          <div class="stat-row">
+            <span>Spent</span>
+            <span class="spent-amount">€0</span>
+          </div>
+          <div class="stat-row">
+            <span>Remaining</span>
+            <span class="remaining-amount">€213</span>
+          </div>
+        </div>
+        <div class="progress-bar">
+          <div class="progress-fill" style="width: 0%"></div>
+        </div>
+      </div>
+
+      <!-- Savings & Investing -->
+      <div class="budget-card" data-category="savings">
         <div class="card-header">
           <div class="card-info">
             <div class="card-icon savings">
               <i class="fa-solid fa-piggy-bank"></i>
             </div>
-            <h3>Savings</h3>
+            <h3>Savings & Investing</h3>
           </div>
-          <div class="card-percentage">3%</div>
+          <div class="card-percentage">5%</div>
         </div>
         <div class="card-stats">
           <div class="stat-row">
             <span>Budget</span>
-            <span>€200</span>
+            <span class="budget-amount">€213</span>
           </div>
           <div class="stat-row">
             <span>Spent</span>
-            <span class="spent">€200</span>
+            <span class="spent-amount">€0</span>
           </div>
           <div class="stat-row">
             <span>Remaining</span>
-            <span>€0</span>
+            <span class="remaining-amount">€213</span>
           </div>
         </div>
         <div class="progress-bar">
-          <div class="progress-fill savings-complete" style="width: 100%"></div>
+          <div class="progress-fill" style="width: 0%"></div>
         </div>
       </div>
     </section>
@@ -214,56 +278,6 @@
         </div>
         
         <div class="transactions-list">
-          <div class="transaction-item expense">
-            <div class="transaction-content">
-              <div class="transaction-icon restaurant">
-                <i class="fa-solid fa-utensils"></i>
-              </div>
-              <div class="transaction-details">
-                <h4>Dinner at Restaurant</h4>
-              </div>
-            </div>
-            <div class="transaction-amount expense">-€45</div>
-          </div>
-
-          <div class="transaction-item expense">
-            <div class="transaction-content">
-              <div class="transaction-icon gas">
-                <i class="fa-solid fa-gas-pump"></i>
-              </div>
-              <div class="transaction-details">
-                <h4>Gas Station</h4>
-                <p>Yesterday, 2:15 PM</p>
-              </div>
-            </div>
-            <div class="transaction-amount expense">-€60</div>
-          </div>
-
-          <div class="transaction-item income">
-            <div class="transaction-content">
-              <div class="transaction-icon salary">
-                <i class="fa-solid fa-arrow-down"></i>
-              </div>
-              <div class="transaction-details">
-                <h4>Salary Deposit</h4>
-                <p>Dec 30, 9:00 AM</p>
-              </div>
-            </div>
-            <div class="transaction-amount income">+€1500</div>
-          </div>
-
-          <div class="transaction-item expense">
-            <div class="transaction-content">
-              <div class="transaction-icon shopping">
-                <i class="fa-solid fa-shopping-bag"></i>
-              </div>
-              <div class="transaction-details">
-                <h4>Shopping</h4>
-                <p>Dec 29, 4:20 PM</p>
-              </div>
-            </div>
-            <div class="transaction-amount expense">-€120</div>
-          </div>
         </div>
       </section>
 

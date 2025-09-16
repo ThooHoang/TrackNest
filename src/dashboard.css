@@ -1,6 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
+/* ============================================
+   CSS VARIABLES
+   ============================================ */
 :root {
+  /* Typography */
   --font-h1: 3.75rem;   /* 60px */
   --font-h2: 2.125rem;  /* 34px */
   --font-h3: 1.375rem;  /* 22px */
@@ -12,6 +16,7 @@
   --fw-semibold: 600;
   --fw-bold: 700;
 
+  /* Colors */
   --color-green: #9BDE4C;
   --color-dark: #25262C;
   --color-light: #E5E7EB;
@@ -19,13 +24,16 @@
   --color-gray: #6B7280;
   --color-gray-light: #F9FAFB;
 
+  /* Effects */
   --gradient-green: linear-gradient(180deg, #9BDE4C 0%, #547829 100%);
   --shadow-custom: 
     0 9.55px 14.33px rgba(0, 0, 0, 0.1),
     0 3.82px 5.73px rgba(0, 0, 0, 0.1);
 }
 
-/* Reset */
+/* ============================================
+   RESET & BASE STYLES
+   ============================================ */
 * {
   margin: 0;
   padding: 0;
@@ -47,7 +55,9 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* Dashboard Navbar */
+/* ============================================
+   NAVIGATION
+   ============================================ */
 .dashboard-navbar {
   background-color: var(--color-white);
   box-shadow: var(--shadow-custom);
@@ -65,14 +75,12 @@ body {
   align-items: center;
 }
 
-/* Right side container */
 .navbar-right {
   display: flex;
   align-items: center;
   gap: 30px;
 }
 
-/* Stat boxes */
 .navbar-stat {
   display: flex;
   flex-direction: row;
@@ -98,7 +106,6 @@ body {
   font-weight: var(--fw-bold);
 }
 
-/* Profile image */
 .navbar-profile {
   margin-left: 0.5rem;
 }
@@ -116,14 +123,15 @@ body {
   transform: scale(1.05);
 }
 
-/* Dashboard main content */
+/* ============================================
+   MAIN LAYOUT
+   ============================================ */
 .dashboard-main {
   margin: 0 auto;
   padding: 40px 80px;
   min-height: calc(100vh - 80px);
 }
 
-/* Dashboard Header Section */
 .dashboard-header {
   display: flex;
   justify-content: space-between;
@@ -147,7 +155,16 @@ body {
   font-weight: var(--fw-regular);
 }
 
-/* Quick Action Button */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+/* ============================================
+   BUTTONS
+   ============================================ */
 .btn-quick-action {
   font-family: 'Inter', sans-serif;
   font-size: var(--font-p);
@@ -173,11 +190,6 @@ body {
   transform: translateY(0);
 }
 
-.btn-quick-action i {
-  font-size: 1.1rem;
-}
-
-/* Add Expense Button */
 .btn-add-expense {
   font-family: 'Inter', sans-serif;
   font-size: var(--font-sm);
@@ -199,15 +211,32 @@ body {
   transform: translateY(-1px);
 }
 
-.btn-add-expense:active {
-  transform: translateY(0);
+.btn-delete {
+  background: none;
+  border: none;
+  color: var(--color-gray);
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: all 0.2s ease;
+  opacity: 0;
+  visibility: hidden;
 }
 
-.btn-add-expense i {
-  font-size: 0.9rem;
+.btn-delete:hover {
+  background-color: #FEE2E2;
+  color: #DC2626;
+  transform: scale(1.1);
 }
 
-/* Budget Cards */
+.btn-delete:active {
+  transform: scale(0.95);
+}
+
+/* ============================================
+   BUDGET CARDS
+   ============================================ */
 .budget-cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -222,8 +251,6 @@ body {
   box-shadow: var(--shadow-custom);
   cursor: pointer;
 }
-
-
 
 .card-header {
   display: flex;
@@ -241,7 +268,6 @@ body {
 .card-icon {
   width: 40px;
   height: 40px;
-  background-color: #3B82F6;
   border-radius: 8px;
   display: flex;
   align-items: center;
@@ -316,63 +342,52 @@ body {
 
 .progress-fill {
   height: 100%;
-  background-color: #3B82F6;
   border-radius: 4px;
   transition: width 0.3s ease;
 }
 
-/* Farebné ikony */
-.card-icon.food {
-  background-color: #F59E0B;
-}
-
-.card-icon.transport {
-  background-color: #8B5CF6;
-}
-
-.card-icon.entertainment {
-  background-color: #EF4444;
-}
-
-.card-icon.savings {
-  background-color: #10B981;
-}
-
-/* Progress bary s rovnakými farbami */
+/* Progress bar colors */
 .budget-card:nth-child(1) .progress-fill {
-  background-color: #3B82F6; /* Living Costs - modrá */
+  background-color: #3B82F6;
 }
 
 .budget-card:nth-child(2) .progress-fill {
-  background-color: #F59E0B; /* Food - oranžová */
+  background-color: #F59E0B;
 }
 
 .budget-card:nth-child(3) .progress-fill {
-  background-color: #8B5CF6; /* Transport - fialová */
+  background-color: #8B5CF6;
 }
 
 .budget-card:nth-child(4) .progress-fill {
-  background-color: #EF4444; /* Entertainment - červená */
+  background-color: #EF4444;
 }
 
 .budget-card:nth-child(5) .progress-fill {
-  background-color: #10B981; /* Savings - zelená */
+  background-color: #10B981;
 }
 
-/* Dashboard Grid Layout */
-.dashboard-grid {
-  display: grid;
-  grid-template-columns: 1fr 400px;
-  gap: 2rem;
-  margin-bottom: 2rem;
-}
-
-/* Recent Transactions */
+/* ============================================
+   TRANSACTIONS
+   ============================================ */
 .recent-transactions {
   background-color: var(--color-white);
   border-radius: 16px;
   padding: 1.5rem;
   box-shadow: var(--shadow-custom);
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.section-header h2 {
+  font-size: var(--font-h3);
+  color: var(--color-dark);
+  font-weight: var(--fw-bold);
 }
 
 .view-all-link {
@@ -401,6 +416,11 @@ body {
   transition: all 0.2s ease;
 }
 
+.transaction-item:hover .btn-delete {
+  opacity: 1;
+  visibility: visible;
+}
+
 .transaction-content {
   display: flex;
   align-items: center;
@@ -418,28 +438,157 @@ body {
   font-size: 1rem;
 }
 
-.transaction-icon.restaurant {
-  background-color: #FEE2E2;
+.transaction-details h4 {
+  font-size: var(--font-p);
+  color: var(--color-dark);
+  font-weight: var(--fw-semibold);
+  margin-bottom: 0.25rem;
+}
+
+.transaction-details p {
+  font-size: var(--font-sm);
+  color: var(--color-gray);
+}
+
+.transaction-amount {
+  font-size: var(--font-p);
+  font-weight: var(--fw-bold);
+}
+
+.transaction-amount.expense {
   color: #EF4444;
 }
 
-.transaction-icon.gas {
-  background-color: #DBEAFE;
-  color: #3B82F6;
-}
-
-.transaction-icon.salary {
-  background-color: #D1FAE5;
+.transaction-amount.income {
   color: #10B981;
 }
 
-.transaction-icon.shopping {
-  background-color: #F3E8FF;
-  color: #8B5CF6;
+/* ============================================
+   EXPENSES
+   ============================================ */
+.fixed-expenses {
+  background-color: var(--color-white);
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: var(--shadow-custom);
 }
 
-/* Zmeň tieto CSS triedy: */
+.expenses-counter {
+  font-size: var(--font-sm);
+  color: var(--color-gray);
+  font-weight: var(--fw-regular);
+}
 
+.expenses-counter-wrapper {
+  margin-bottom: 1rem;
+}
+
+.expenses-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.expense-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border-radius: 12px;
+  background-color: var(--color-white);
+  border: 1px solid #E5E7EB;
+  transition: all 0.2s ease;
+}
+
+.expense-item.paid {
+  background-color: #F0FDF4;
+  border-color: #10B981;
+}
+
+.expense-item:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.expense-item:hover .btn-delete {
+  opacity: 1;
+  visibility: visible;
+}
+
+.expense-content {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.expense-checkbox {
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+  border: 2px solid #D1D5DB;
+  cursor: pointer;
+  accent-color: #10B981;
+}
+
+.expense-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 0.9rem;
+}
+
+.expense-icon.house {
+  background-color: #3B82F6;
+}
+
+.expense-icon.entertainment {
+  background-color: #EF4444;
+}
+
+.expense-icon.phone {
+  background-color: #8B5CF6;
+}
+
+.expense-icon.utility {
+  background-color: #F59E0B;
+}
+
+.expense-icon.wifi {
+  background-color: #8B5CF6;
+}
+
+.expense-details h4 {
+  font-size: var(--font-p);
+  color: var(--color-dark);
+  font-weight: var(--fw-semibold);
+  margin-bottom: 0.25rem;
+}
+
+.expense-details p {
+  font-size: var(--font-sm);
+  color: var(--color-gray);
+  font-weight: var(--fw-regular);
+}
+
+.expense-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.expense-amount {
+  font-size: var(--font-p);
+  color: var(--color-dark);
+  font-weight: var(--fw-bold);
+}
+
+/* ============================================
+   ICON CATEGORIES (Unified System)
+   ============================================ */
 /* Food */
 .transaction-icon.utensils,
 .expense-icon.utensils {
@@ -503,166 +652,16 @@ body {
   color: #10B981;
 }
 
-/* Income */
+/* Income/Salary */
 .transaction-icon.arrow-down,
 .expense-icon.arrow-down {
   background-color: #D1FAE5;
   color: #10B981;
 }
 
-
-.transaction-details h4 {
-  font-size: var(--font-p);
-  color: var(--color-dark);
-  font-weight: var(--fw-semibold);
-  margin-bottom: 0.25rem;
-}
-
-.transaction-details p {
-  font-size: var(--font-sm);
-  color: var(--color-gray);
-}
-
-.transaction-amount {
-  font-size: var(--font-p);
-  font-weight: var(--fw-bold);
-}
-
-.transaction-amount.expense {
-  color: #EF4444;
-}
-
-.transaction-amount.income {
-  color: #10B981;
-}
-
-/* Fixed Expenses - lepší dizajn */
-.fixed-expenses {
-  background-color: var(--color-white);
-  border-radius: 16px;
-  padding: 1.5rem;
-  box-shadow: var(--shadow-custom);
-}
-
-.section-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 1.5rem;
-}
-
-.section-header h2 {
-  font-size: var(--font-h3);
-  color: var(--color-dark);
-  font-weight: var(--fw-bold);
-}
-
-.expenses-counter {
-  font-size: var(--font-sm);
-  color: var(--color-gray);
-  font-weight: var(--fw-regular);
-}
-
-.expenses-counter-wrapper {
-  margin-bottom: 1rem;
-}
-
-.expenses-list {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-}
-
-.expense-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem;
-  border-radius: 12px;
-  background-color: var(--color-white);
-  border: 1px solid #E5E7EB;
-  transition: all 0.2s ease;
-}
-
-.expense-item.paid {
-  background-color: #F0FDF4;
-  border-color: #10B981;
-}
-
-.expense-content {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-.expense-checkbox {
-  width: 18px;
-  height: 18px;
-  border-radius: 4px;
-  border: 2px solid #D1D5DB;
-  cursor: pointer;
-  accent-color: #10B981;
-}
-
-.expense-icon {
-  width: 32px;
-  height: 32px;
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-size: 0.9rem;
-}
-
-.expense-icon.house {
-  background-color: #3B82F6;
-}
-
-.expense-icon.entertainment {
-  background-color: #EF4444;
-}
-
-.expense-icon.phone {
-  background-color: #8B5CF6;
-}
-
-.expense-icon.utility {
-  background-color: #F59E0B;
-}
-
-.expense-icon.wifi {
-  background-color: #8B5CF6;
-}
-
-.expense-details h4 {
-  font-size: var(--font-p);
-  color: var(--color-dark);
-  font-weight: var(--fw-semibold);
-  margin-bottom: 0.25rem;
-}
-
-.expense-details p {
-  font-size: var(--font-sm);
-  color: var(--color-gray);
-  font-weight: var(--fw-regular);
-}
-
-.expense-amount {
-  font-size: var(--font-p);
-  color: var(--color-dark);
-  font-weight: var(--fw-bold);
-}
-
-/* Hover efekty */
-.expense-item:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-/* ===== MODAL STYLES ===== */
-
-/* Modal Overlay - pozadie */
+/* ============================================
+   MODALS
+   ============================================ */
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -679,13 +678,11 @@ body {
   transition: all 0.3s ease;
 }
 
-/* Modal je viditeľný */
 .modal-overlay.active {
   opacity: 1;
   visibility: visible;
 }
 
-/* Modal Container - hlavný box */
 .modal-container {
   background: var(--color-white);
   border-radius: 16px;
@@ -702,7 +699,6 @@ body {
   transform: scale(1);
 }
 
-/* Modal Header */
 .modal-header {
   display: flex;
   justify-content: space-between;
@@ -734,7 +730,6 @@ body {
   color: var(--color-dark);
 }
 
-/* Modal Form */
 .modal-form {
   padding: 0 24px 24px 24px;
 }
@@ -772,7 +767,6 @@ body {
   color: var(--color-gray);
 }
 
-/* Modal Actions */
 .modal-actions {
   display: flex;
   gap: 12px;
@@ -810,124 +804,13 @@ body {
   box-shadow: 0 4px 8px rgba(155, 222, 76, 0.3);
 }
 
-/* ===== DELETE BUTTON STYLES ===== */
-
-/* Expense Actions - kontajner pre amount a delete */
-.expense-actions {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-/* Delete Button */
-.btn-delete {
-  background: none;
-  border: none;
-  color: var(--color-gray);
-  cursor: pointer;
-  padding: 8px;
-  border-radius: 6px;
-  font-size: 14px;
-  transition: all 0.2s ease;
-  opacity: 0;
-  visibility: hidden;
-}
-
-/* Ukáž delete tlačidlo pri hover na expense */
-.expense-item:hover .btn-delete {
-  opacity: 1;
-  visibility: visible;
-}
-
-/* Delete tlačidlo hover efekt */
-.btn-delete:hover {
-  background-color: #FEE2E2;
-  color: #DC2626;
-  transform: scale(1.1);
-}
-
-/* Delete tlačidlo active efekt */
-.btn-delete:active {
-  transform: scale(0.95);
-}
-
-/* Responsive - na mobile vždy zobraz delete */
+/* ============================================
+   RESPONSIVE
+   ============================================ */
 @media (max-width: 768px) {
   .btn-delete {
     opacity: 1;
     visibility: visible;
   }
-}
-
-/* === NEW CATEGORIES - CSS CLASSES === */
-
-/* Food */
-.transaction-icon.food,
-.expense-icon.food {
-  background-color: #FEF3C7;
-  color: #F59E0B;
-}
-
-/* Health */
-.transaction-icon.health,
-.expense-icon.health {
-  background-color: #DBEAFE;
-  color: #3B82F6;
-}
-
-/* Transport */
-.transaction-icon.transport,
-.expense-icon.transport {
-  background-color: #F3E8FF;
-  color: #8B5CF6;
-}
-
-/* Entertainment */
-.transaction-icon.entertainment,
-.expense-icon.entertainment {
-  background-color: #FEE2E2;
-  color: #EF4444;
-}
-
-/* Beauty */
-.transaction-icon.beauty,
-.expense-icon.beauty {
-  background-color: #FCE7F3;
-  color: #EC4899;
-}
-
-/* Subscription */
-.transaction-icon.subscription,
-.expense-icon.subscription {
-  background-color: #EDE9FE;
-  color: #7C3AED;
-}
-
-/* Rent */
-.transaction-icon.rent,
-.expense-icon.rent {
-  background-color: #DBEAFE;
-  color: #2563EB;
-}
-
-/* Investing */
-.transaction-icon.investing,
-.expense-icon.investing {
-  background-color: #D1FAE5;
-  color: #059669;
-}
-
-/* Savings */
-.transaction-icon.savings,
-.expense-icon.savings {
-  background-color: #D1FAE5;
-  color: #10B981;
-}
-
-/* Income/Salary */
-.transaction-icon.income,
-.expense-icon.income {
-  background-color: #D1FAE5;
-  color: #10B981;
 }
 
