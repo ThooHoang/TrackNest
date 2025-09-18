@@ -6,15 +6,15 @@ function updateCounter() {
 }
 
 const DEFAULT_BUDGET_TEMPLATE = {
-    monthlyIncome: 28688, 
+    monthlyIncome: 0,
     categories: {
-        housing: {percentage: 40, spent: 4388},
-        food: {percentage: 20, spent: 0},
-        transport: {percentage: 15, spent: 0},
-        healthcare: {percentage: 5, spent: 0},
-        entertainment: {percentage: 10, spent: 88},
-        personal: {percentage: 5, spent: 0},
-        savings: {percentage: 5, spent: 0},
+        housing: { percentage: 40, spent: 0 },
+        food: { percentage: 20, spent: 0 },
+        transport: { percentage: 15, spent: 0 },
+        healthcare: { percentage: 5, spent: 0 },
+        entertainment: { percentage: 10, spent: 0 },
+        personal: { percentage: 5, spent: 0 },
+        savings: { percentage: 5, spent: 0 },
     }
 };
 
@@ -80,13 +80,41 @@ function initializeBudgetData() {
 function promptForInitialIncome() {
     const income = prompt('Welcome to TrackNest! 🎉\n\nTo get started, please enter your monthly income (DKK):');
 
+    // If user cancels, don’t loop forever; we’ll try again on first tap
+    if (income === null) {
+        updateAllDisplays();
+        return;
+    }
+
     if (income && !isNaN(income) && income > 0) {
         budgetData.monthlyIncome = parseFloat(income);
         saveBudgetData();
         updateAllDisplays();
     } else {
         alert('Please enter a valid income amount to use TrackNest');
+        // Don’t recurse; we’ll ask again on first user interaction
+        updateAllDisplays();
+    }
+}
+
+// Fallback: if mobile blocks the prompt on load, ask on first user tap
+function ensureInitialIncomePrompt() {
+    if (budgetData && (!budgetData.monthlyIncome || budgetData.monthlyIncome === 0)) {
+        // Try immediately
         promptForInitialIncome();
+
+        // If still not set, attach a one-time click/touchstart to prompt
+        if (!budgetData.monthlyIncome || budgetData.monthlyIncome === 0) {
+            const handler = () => {
+                if (!budgetData.monthlyIncome || budgetData.monthlyIncome === 0) {
+                    promptForInitialIncome();
+                }
+                window.removeEventListener('click', handler);
+                window.removeEventListener('touchstart', handler);
+            };
+            window.addEventListener('click', handler, { once: true });
+            window.addEventListener('touchstart', handler, { once: true });
+        }
     }
 }
 
@@ -596,14 +624,14 @@ transactionList.addEventListener('click', function(event) {
 
 document.addEventListener('DOMContentLoaded', function() {
     console.log('DOM loaded, initializing...');
-    
-
     initializeBudgetData();
+    // Render immediately—no arbitrary delay
+    displaySavedTransactions();
+    // Ensure the fixed-expense counter is correct on first paint
+    updateCounter();
+    // Make sure new users get prompted (with mobile fallback)
+    ensureInitialIncomePrompt();
     debugBudgetState();
-    setTimeout(() => {
-        displaySavedTransactions();
-        console.log('Initialization complete');
-    }, 100);
 });
 
 function debugBudgetState() {
