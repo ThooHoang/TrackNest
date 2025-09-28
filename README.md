@@ -1,53 +1,46 @@
-# TrackNest 💰
+# 💰 TrackNest
 
-A responsive personal finance tracker built with vanilla HTML, CSS, and JavaScript. Manage budgets, track expenses, and monitor financial goals with an intuitive dashboard.
+## 📄 Overview
+
+**TrackNest** is my most ambitious and complete project so far, and the one I’m most proud to include in my portfolio.  
+
+For a long time, I struggled to find a finance app that truly fit my needs – something simple, clear, and customizable where I could set a budget and get a beautiful overview of my finances. With TrackNest, I wanted to **solve a real problem in my own life** and make my daily financial planning easier.  
+
+This project taught me a lot about design, coding, and how to bring an idea to life.  
 
 ## 🚀 Features
 
-- **Budget Dashboard**: Visual budget tracking with category breakdown
-- **Transaction Management**: Add/track income and expenses
-- **Fixed Expenses**: Manage recurring bills and subscriptions
-- **Responsive Design**: Works on all devices
-- **Local Storage**: Persistent data without backend
+- **Landing Page** – with a modern design that introduces the app  
+- **Start Planning Button** – takes you directly to the finance dashboard  
+- **Dashboard** – manage budgets and track expenses  
+- **LocalStorage** – keeps data saved locally in the browser  
+- **Custom Branding** – I designed the full brand identity, logo, and UI in **Figma**  
+- **Responsive Design** – optimized for desktop and mobile  
 
-## 🛠️ Tech Stack
+## 🛠️ Technologies Used
 
-- HTML5, CSS3, Vanilla JavaScript
-- Vite (build tool)
-- Font Awesome (icons)
-- Local Storage API
-
-## 📚 What I Learned
-
-### Frontend Skills
-- **CSS**: Grid, Flexbox, responsive design, CSS variables
-- **JavaScript**: DOM manipulation, event handling, local storage, JSON
-- **UX/UI**: Modal design, form validation, accessibility
-- **Project Management**: Git workflow, file organization, build tools
-
-### Development Concepts
-
-- State management without frameworks
-- Data persistence and error handling
-- Clean, maintainable code structure
-
-## 🎯 Key Challenges Overcome
-
-1. **State Management**: Managing app state with vanilla JavaScript
-2. **Responsive Layout**: Creating flexible layouts for all screen sizes
-3. **Data Persistence**: Reliable local storage with error handling
-4. **User Experience**: Intuitive forms and real-time updates
+- **HTML5** – structure built entirely by me  
+- **CSS3** – full custom styling created from scratch  
+- **JavaScript** – I wrote the logic myself with some AI assistance to learn and improve faster  
 
 
-## 🔮 Future Features
+## 🔮 Future Plans
 
-- Data export (CSV/PDF)
-- Ai Summary
-- Charts and analytics
-- Multi-currency support
-- Dark mode theme
-- Cloud synchronization
+I’m still at the beginning of my developer journey, but I have big plans for TrackNest:  
+
+- Build a **backend** so users can log in and save their data in a database  
+- Add **AI-powered insights** that provide a monthly overview with suggestions on how to improve spending habits  
+- Learn to work with **APIs** and connect with real-world services (e.g., integrating with payment apps like Lunar so every transaction automatically appears in the dashboard)  
+
+## 🙌 Motivation
+
+This project is special to me because it’s not just practice – it’s a **solution to a real-life problem I had**.  
+I discovered a problem, fixed it with code, and created something useful. That’s why I’m proud of TrackNest.  
+
+## 📞 Contact
+
+If you’d like to connect or share feedback:  
+- ✉️ Email: *[adamhoang23@gmail.com]*  
+- 💼 LinkedIn: *[https://www.linkedin.com/in/quang-tho-hoang-42801b322/]*  
 
 ---
-
-**Built with ❤️ by Quang Tho Hoang as part of my frontend development journey**
